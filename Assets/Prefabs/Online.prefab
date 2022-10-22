@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationManager: {fileID: 7588075345109242123}
-  _camTransform: {fileID: 6072679896613639290}
   _interpolator: {fileID: 2870547094654924896}
+  _camTransform: {fileID: 6072679896613639290}
 --- !u!114 &7588075345109242123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +152,10 @@ PrefabInstance:
     - target: {fileID: 1704974879064006202, guid: d245804a1bbfdaf41bc4b56fbe562bf7, type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068369729390790906, guid: d245804a1bbfdaf41bc4b56fbe562bf7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d245804a1bbfdaf41bc4b56fbe562bf7, type: 3}

@@ -32,13 +32,13 @@ public class Interpolator : MonoBehaviour
         //Set the transform update to move from as the current position also storing the Interpolation tick
         _from = new TransformUpdate(NetworkManager.NetworkManagerInstance.InterpolationTick, transform.position);
         //Set the previous to be the same as the from
-        _previous = _from; //new TransformUpdate(NetworkManager.NetworkManagerInstance.InterpolationTick, transform.position);
+        _previous = new TransformUpdate(NetworkManager.NetworkManagerInstance.InterpolationTick, transform.position);
     }
     #endregion
     #region Interpolation
     private void Update()
     {
-        //For every transform update stored in the list
+        //For every transform update stored in the list/*
         for (int i = 0; i < _futureTransformUpdates.Count; i++)
         {
             //If server tick is greater or equal to the tick of our current transform update we are looking at
@@ -58,15 +58,18 @@ public class Interpolator : MonoBehaviour
                 _timeElapsed = 0f;
                 //Time to reach target is the difference between the tick counts of the from and to locations multiplied by fixed deltatime
                 _timeToReachTarget = (_to.Tick - _from.Tick) * Time.fixedDeltaTime;
-            }           
+            }
         }
         //After the calculations have finished start incrementing the elapsed time by the deltatime
         _timeElapsed += Time.deltaTime;
         //Run the Interpolation function passing the time elapsed divided by the time to reach target as a lerp amount
+        Debug.Log("Time Elapsed = " + _timeElapsed);
         InterpolatePosition(_timeElapsed / _timeToReachTarget);
     }
     private void InterpolatePosition(float lerpAmount)
     {
+        Debug.Log(lerpAmount);
+
         //If the distance between the to and from position is less than the movement threshold
         if ((_to.Position - _previous.Position).sqrMagnitude < _squareMovementThreshold)
         {
@@ -74,13 +77,16 @@ public class Interpolator : MonoBehaviour
             if (_to.Position != _from.Position)
             {
                 transform.position = Vector3.Lerp(_from.Position, _to.Position, lerpAmount);
-                return;
+
             }
+            return;
         }
-        
+
         //If the previous wasn't true, use the LerpUnclamped function to move smoothly to the to position
         //Changed to normal Lerp function as unclamped was giving jittery motions and errors
-        transform.position = Vector3.Lerp(_from.Position, _to.Position, lerpAmount);
+        lerpAmount = Mathf.Clamp(lerpAmount, 0f, 2.5f);
+        transform.position = Vector3.LerpUnclamped(_from.Position, _to.Position, lerpAmount);
+
     }
     public void NewUpdate(ushort tick, Vector3 position)
     {

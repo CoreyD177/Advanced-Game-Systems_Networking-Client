@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7166823548472797411}
-  - component: {fileID: 2066134515127714735}
   - component: {fileID: 5550557967027348104}
   - component: {fileID: 1058404186326982230}
-  - component: {fileID: 6574795477532341824}
   - component: {fileID: 3202517227771066438}
   m_Layer: 0
   m_Name: Player
@@ -36,25 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2066134515127714735
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2888082903385266679}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 843b2e5318034894e92c0e97507d5d4f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5550557967027348104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,23 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785271316bb991247aa80ed8a3f164e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationManager: {fileID: 6574795477532341824}
-  _camTransform: {fileID: 9092319716912405019}
+  _animationManager: {fileID: 2111011792757592273}
   _interpolator: {fileID: 3202517227771066438}
---- !u!114 &6574795477532341824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2888082903385266679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4300e120f541d6340afea71f3a68f122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 2066134515127714735}
-  _playerMoveSpeed: 5
+  _camTransform: {fileID: 9092319716912405019}
 --- !u!114 &3202517227771066438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +140,17 @@ PrefabInstance:
       propertyPath: _clampAngle
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5034790401204337293, guid: 57f7d6516c76db7418be3996267ad480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f7d6516c76db7418be3996267ad480, type: 3}
+--- !u!1 &3195315157179809452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1704974879064006202, guid: 57f7d6516c76db7418be3996267ad480, type: 3}
+  m_PrefabInstance: {fileID: 4319307915997257878}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4493916795958453539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408941557720237493, guid: 57f7d6516c76db7418be3996267ad480, type: 3}
@@ -187,3 +161,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5034790401204337293, guid: 57f7d6516c76db7418be3996267ad480, type: 3}
   m_PrefabInstance: {fileID: 4319307915997257878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2111011792757592273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3195315157179809452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4300e120f541d6340afea71f3a68f122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8760866753607349614}
+  _playerMoveSpeed: 5
+--- !u!95 &8760866753607349614
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3195315157179809452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 843b2e5318034894e92c0e97507d5d4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
